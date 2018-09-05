@@ -2,17 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Description
-"""Truemail: Python3-Based Email Validator."""
-
-# Package information
-__author__ = 'Go Digit General Insurance Ltd.'
-__version__ = '0.3.5'
-__status__ = 'Staging'
-__maintainer__ = 'Shaan Shivanandan'
-__email__ = 'shaan.shivanandan@godigit.com'
-__license__ = 'MIT'
-__copyright__ = 'Copyright 2016–2018, Go Digit General Insurance Ltd. or its affiliates.'
-
+"""Truemail: Python3-Based Email Validator.""
 
 # Standard library imports
 import re
