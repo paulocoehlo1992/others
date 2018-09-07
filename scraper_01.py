@@ -20,7 +20,7 @@ from elasticsearch import Elasticsearch
 from elasticsearch import helpers
 import json
 client=MongoClient()
-es=Elasticsearch('https://vpc-digit-test-es-zhvoov6ksa5umlzulscdwd55ua.ap-south-1.es.amazonaws.com')
+es=Elasticsearch("CONNECTION_STRING")
 
 db=client.flight_data
 collection_1=db.flight_data_collection
@@ -144,11 +144,11 @@ while True:
     current_time=str(time.ctime())
     name_of_fetched=" ,".join(fetched_tail)
     messg="the latest iteration completed at"+":"+current_time+"Total number of fetched tail-ids:"+str(len(fetched_tail))+"Total number of unfetched tail ids :"+str(len(unfetched))+"----"+"Tail_ids:"+" "+name_of_fetched
-    send_email("vishalvikram1992","Realmadrid.@123",["vishal.nestaway@gmail.com","vishalvikram.singh@godigit.com","analytics@godigit.com"],"flight_data",messg)  
+    send_email("vishalvikram1992","password",["vishal.nestaway@gmail.com","vishalvikram.singh@godigit.com"],"flight_data",messg)  
     import sqlalchemy
     import datetime
     from sqlalchemy import *
-    engine = sqlalchemy.create_engine("postgresql://dbmaster:D2b!p0snt@datadbins.cpmhro02yml1.ap-south-1.rds.amazonaws.com/repos")
+    engine = sqlalchemy.create_engine("postgresql://USERNAME:PASSWORD@datadbins.cpmhro02yml1.ap-south-1.rds.amazonaws.com/DB_NAME")
     engine.connect()
     s="INSERT INTO dm_reports.m_audit_log (job_id,message_class,trace_message,job_name,origin_ref,time_stamp)VALUES('00002','successful','flight_data_fetched','flightradar24','python',to_char(now(),'DD-MM-YYYY HH24:MI:SS'));"#.format(k)
     engine.execute(s)
