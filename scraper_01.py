@@ -87,7 +87,7 @@ updated_tail=['VT-ITA', 'VT-ITB', 'VT-ITC', 'VT-ITD', 'VT-ITE', 'VT-ITF', 'VT-IT
 while True:
     time.sleep(86400*3)
 
-    #es=Elasticsearch('https://vpc-digit-test-es-zhvoov6ksa5umlzulscdwd55ua.ap-south-1.es.amazonaws.com')
+    #es=Elasticsearch('CONNECTION STRING ')
     client=MongoClient()
     print("waiting for next iteration")
     #print("program is waiting")
