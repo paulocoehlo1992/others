@@ -12,7 +12,7 @@ def timeseries_motor():
     from sklearn.metrics import mean_squared_error
     from math import sqrt
     from fbprophet import Prophet
-    engine = sqlalchemy.create_engine("postgresql://dbmaster:D2b!p0snt@datadbins.cpmhro02yml1.ap-south-1.rds.amazonaws.com/repos")
+    engine = sqlalchemy.create_engine("postgresql:/username:password@datadbins.cpmhro02yml1.ap-south-1.rds.amazonaws.com/repos")
     engine.connect()
     data=pd.read_sql('select * from dm_reports.v_lob_wise_business_data;',con=engine)
     cutoff=(datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d'))
@@ -69,7 +69,7 @@ def timeseries_travel():
     from sklearn.metrics import mean_squared_error
     from math import sqrt
     from fbprophet import Prophet
-    engine = sqlalchemy.create_engine("postgresql://dbmaster:D2b!p0snt@datadbins.cpmhro02yml1.ap-south-1.rds.amazonaws.com/repos")
+    engine = sqlalchemy.create_engine("postgresql://username:password@datadbins.cpmhro02yml1.ap-south-1.rds.amazonaws.com/repos")
     engine.connect()
     data=pd.read_sql('select * from dm_reports.v_lob_wise_business_data;',con=engine)
     cutoff=(datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d'))
@@ -119,7 +119,7 @@ def timeseries_mobile():
     from sklearn.metrics import mean_squared_error
     from math import sqrt
     from fbprophet import Prophet
-    engine = sqlalchemy.create_engine("postgresql://dbmaster:D2b!p0snt@datadbins.cpmhro02yml1.ap-south-1.rds.amazonaws.com/repos")
+    engine = sqlalchemy.create_engine("postgresql://username:password@datadbins.cpmhro02yml1.ap-south-1.rds.amazonaws.com/repos")
     engine.connect()
     data=pd.read_sql('select * from dm_reports.v_lob_wise_business_data;',con=engine)
     cutoff=(datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d'))
@@ -178,7 +178,7 @@ def office_wise_forecast():
        '11901   ', '12402   ', '12901   ', '12705   ', '13701   ',
        '13301   ', '13601   ', '12701   ', '10301   ', 
        '10101   ', '12903   ', '13001   ', '10302   ', '13702   ', '10801   ', '10501   '] #12703,12704,12904
-    engine = sqlalchemy.create_engine("postgresql://dbmaster:D2b!p0snt@datadbins.cpmhro02yml1.ap-south-1.rds.amazonaws.com/repos")
+    engine = sqlalchemy.create_engine("postgresql://UN:PA@datadbins.cpmhro02yml1.ap-south-1.rds.amazonaws.com/repos")
     engine.connect()
     df=pd.read_sql("select policy_issue_date::Date, office_code, office_name,sum(net_premium) net_premium from dm_marts.m_policy where product_lob ~* 'motor' and policy_status='A'group by policy_issue_date::Date,  office_code ,office_name",con=engine)
     data=df.pivot(index='policy_issue_date',columns='office_code',values='net_premium')
