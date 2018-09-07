@@ -22,8 +22,7 @@ import time
 from functools import reduce
 
 s="select mk.make, md.model, vt.variant, vt.vehicle_code, vt.fuel_type,vt.cubic_capacity, vt.horse_power_bhp, vt.vehicle_category, vt.is_declined, vt.declined_reason, vt.gross_vehicle_weight, vt.seating_capacity, vt.body_type from digit_motor.t_make_master mk join digit_motor.t_model_master md on mk.make_id = md.make_id join digit_motor.t_variant_master vt on md.model_id = vt.model_id"
-#engine=sqlalchemy.create_engine("postgresql://readonly:read_only@godigitdev-db01.cpmhro02yml1.ap-south-1.rds.amazonaws.com/digit_dev")
-db_string="postgresql://digit_analytics:@nAlY_D1giT@abs-prod-replica.c0rtobvhsnsa.ap-south-1.rds.amazonaws.com/digit_prod"
+db_string=""
 engine=sqlalchemy.create_engine(db_string)
 engine.connect()
 df=pd.read_sql(s,con=engine)
